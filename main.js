@@ -85,3 +85,37 @@ $(document.body).append(html_devs);
 
 
 
+/*************
+
+    Now let's write a helper function
+
+****************/
+
+var voter_context = {
+  "person":[
+    {"name" : "John", "year" : 1988},
+    {"name" : "Liz" , "year" : 1972},
+    {"name" : "Mike" , "year" : 2009},
+  ]
+}
+
+// custom helper
+// 'registerHelper' is method on Handlebars
+Handlebars.registerHelper("voterStatus", function(year){
+    if( year > 1988){
+        return "can not vote";
+    } else {
+        return "is a voter";
+    }
+});
+
+
+// same four steps as above:
+// get the template,
+// compile it to a script
+// pass the context to the template script
+// and append that html string to the body
+let tpl_voter = $('#hbs-voter').html();
+let tpl_voter_script = Handlebars.compile(tpl_voter);
+let html_voter = tpl_voter_script(voter_context);
+$(document.body).append(html_voter);

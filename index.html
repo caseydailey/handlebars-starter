@@ -34,8 +34,36 @@
                 My name is {{firstName}} <br>
             {{/each}}
 
+            <!-- implementing some conditional logic 
+            don't forget the '#' and the '/' to close the each
+            and the each-->
+            {{#if cities}}
+
+                <h3>The cities are available</h3>
+
+                {{#each cities}}
+                    {{this}} <br>
+                {{/each}}
+
+            {{else}}
+                The cities are not available.
+            {{/if}}
+
+
         </div>
     </script>
+
+
+    <!-- using a custom helper function 'voterStatus' -->
+    <script type="text/x-handlebars-template" id="hbs-voter">
+        <div>
+            {{#each person}}
+                {{name}} {{voterStatus year}} <br>
+            {{/each}}
+        </div>
+    </script>
+
+
 
 
 <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
