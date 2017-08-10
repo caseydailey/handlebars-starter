@@ -8,14 +8,35 @@
 
 <h1>HELLOOOO HANDLEBARS :)</h1> 
 
-    <script type="text/x-handlebars-template" id ="handlebars-starter">
-
     <div id="stuff">
-        My name is {{ name }}. <br>
-        I am a {{ occupation }}.
-    </div>   
+        <script type="text/x-handlebars-template" id ="handlebars-starter">
+        <div >
+            My name is {{ name }}. <br>
+            I am a {{ occupation }}.
+        </div>   
+        </script>
+    </div>
+
     
+        <script type="text/x-handlebars-template" id="hbs-language">
+            <div>
+                We are learning {{language}} and it is {{adjective}} {{happy}}
+            </div>
+        </script>
+
+    <script type="text/x-handlebars-template" id="hbs-devs">
+        <div>
+            This is a demo for {{website.name}}. <br>
+            
+            {{#each names}}
+            {{this}}
+                {{@index}} I am a {{../occupation}}.
+                My name is {{firstName}} <br>
+            {{/each}}
+
+        </div>
     </script>
+
 
 <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="lib/node_modules/handlebars/dist/handlebars.min.js"></script>
